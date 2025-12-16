@@ -20,9 +20,10 @@ export const options = {
     ]
 };
 
-export function getCharactersApi() {
-    const res = http.get(`${ENV.BASE_URL_FUTURAMA}/characters`);
-    assertStatus(res, 'get_characters: status 200', 200);
+export function getInfoApi() {
+    const res = http.get(`${ENV.BASE_URL_FUTURAMA}/info`);
+    assertStatus(res, 'get_info: status 200', 200);
+    console.log(res.body);
     check(res, {
         'Respuesta contiene datos': (r) => JSON.parse(r.body)?.length > 0
     });
